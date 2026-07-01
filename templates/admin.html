@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="hero">
+
+<h1>Admin Dashboard</h1>
+
+<table border="1" width="100%" cellpadding="10">
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Issue</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Action</th>
+    <th>Map</th>
+</tr>
+
+{% for complaint in complaints %}
+<tr>
+
+<td>{{ complaint[0] }}</td>
+<td>{{ complaint[1] }}</td>
+<td>{{ complaint[2] }}</td>
+<td>{{ complaint[3] }}</td>
+<td>{{ complaint[4] }}</td>
+<td>{{ complaint[6] }}</td>
+
+<td>
+{% if complaint[6] == "Pending" %}
+<a href="/resolve/{{ complaint[0] }}">
+    <button class="btn">Resolve</button>
+</a>
+{% else %}
+✅ Resolved
+{% endif %}
+</td>
+
+<td>
+<a href="{{ complaint[5] }}" target="_blank">
+    <button class="btn">📍 View Map</button>
+</a>
+</td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">
+    <button class="btn">Home</button>
+</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Complaint</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="hero">
+
+<h1>Report Civic Issue</h1>
+
+<form action="/submit" method="POST">
+
+<input type="text" name="name" placeholder="Enter Your Name" required>
+
+<input type="text" name="location" placeholder="Enter Location" required>
+
+<select name="issue" required>
+    <option>Pothole</option>
+    <option>Garbage</option>
+    <option>Water Leakage</option>
+    <option>Street Light</option>
+    <option>Road Damage</option>
+</select>
+
+<textarea name="description" placeholder="Describe the issue" rows="5" required></textarea>
+
+<br><br>
+
+<input
+    type="url"
+    name="map_link"
+    placeholder="Paste Google Maps Link"
+    required
+>
+
+<br><br>
+
+<button class="btn" type="submit">Submit Complaint</button>
+
+</form>
+
+<br>
+
+<a href="/">
+    <button class="btn">Home</button>
+</a>
+
+</div>
+
+</body>
+</html>
